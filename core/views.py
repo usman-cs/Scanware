@@ -439,11 +439,8 @@ def uploadfile(request):
         clf = pickle.load(open('media/CLF_RandomForest_99.2.sav', 'rb'))
         try:
             features = extract_features(pefile.PE(f"media/{toScan.file}"))
-        except:
-            prediction = [1]
-        try:
             prediction=clf.predict([features])
-            time.sleep(30)
+            time.sleep(20)
             v = VirusShare('CvSr65e3p4CARl4ZVAEOKA2pLo5g1cbR')
             h = hashing(f"media/{toScan.file}")[1]
             result = v.info(h)
