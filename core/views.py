@@ -440,7 +440,7 @@ def uploadfile(request):
         try:
             features = extract_features(pefile.PE(f"media/{toScan.file}"))
             prediction=clf.predict([features])
-            time.sleep(20)
+            # time.sleep(20)
             v = VirusShare('CvSr65e3p4CARl4ZVAEOKA2pLo5g1cbR')
             h = hashing(f"media/{toScan.file}")[1]
             result = v.info(h)
